@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Target
+  - Metal
+  - ExplosiveBarrel
+  - ImpactNormal
+  - ImpactObstacle
+  - ImpactEnemy
+  - InteractionObject
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -11,9 +19,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Player
+  - Casing
+  - Grenade
   - 
   - 
   - 
