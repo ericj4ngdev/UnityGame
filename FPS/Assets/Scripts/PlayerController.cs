@@ -97,10 +97,25 @@ public class PlayerController : MonoBehaviour
     }
     private void UpdateWeaponAction()
     {
+        // 마우스 좌클릭
         if (Input.GetMouseButtonDown(0))
+        {
             weapon.StartWeaponAction();
-        else if(Input.GetMouseButtonUp(0))
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
             weapon.StopWeaponAction();
+        }
+
+        // 마우스 우클릭 
+        if (Input.GetMouseButtonDown(1))
+        {
+            weapon.StartWeaponAction(1);
+        }
+        else if (Input.GetMouseButtonUp(1))
+        {
+            weapon.StopWeaponAction(1);
+        }
         
         if (Input.GetKeyDown(keyCodeReload))
         {

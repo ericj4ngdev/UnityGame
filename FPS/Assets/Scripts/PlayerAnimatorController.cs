@@ -6,12 +6,10 @@ using UnityEngine;
 public class PlayerAnimatorController : MonoBehaviour
 {
     private Animator animator;
-
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
     }
-
     public float MoveSpeed
     {
         set => animator.SetFloat("movementSpeed", value);
@@ -22,6 +20,13 @@ public class PlayerAnimatorController : MonoBehaviour
     public void OnReload()
     {
         animator.SetTrigger("onReload");
+    }
+
+    // 마우스 우클릭 액션(default / aim mode)
+    public bool AimModeIs
+    {
+        set => animator.SetBool("isAimMode", value);
+        get => animator.GetBool("isAimMode");
     }
     
     public void Play(string stateName, int layer, float normalizedTime)
