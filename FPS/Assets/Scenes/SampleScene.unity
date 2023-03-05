@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44864136, g: 0.49495637, b: 0.55561554, a: 1}
+  m_IndirectSpecularColor: {r: 0.44663304, g: 0.49647653, b: 0.57485324, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 416d305a8ae5ce742808195ee6a00d73, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 5849739490384ed4282c05b500bbd0c6, type: 2}
 --- !u!1 &34473625
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +140,7 @@ GameObject:
   m_TagString: ImpactObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &34473626
 BoxCollider:
@@ -849,13 +849,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.23796213, y: 0.439743, z: 0.1032141, w: 0.8598529}
+  m_LocalRotation: {x: 0.7627901, y: 0.3814683, z: 0.03935255, w: 0.5206579}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 18.569, y: 58.166, z: 24.081}
+  m_LocalEulerAnglesHint: {x: 49.843, y: 134.841, z: 104.99}
 --- !u!1 &770664169
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,7 +988,7 @@ GameObject:
   m_TagString: ImpactNormal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &981787213
 Transform:
@@ -1220,7 +1220,7 @@ GameObject:
   m_TagString: ImpactNormal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1175278080
 Transform:
@@ -1846,6 +1846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8bc51591e5213242bf896b15bfdf0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 332300987}
   enemySpawnPointPrefab: {fileID: 2958066548187281301, guid: 87b0fa9fcd9c08844b23e6c25169f4db, type: 3}
   enemyPrefab: {fileID: 5611227786269061316, guid: 5961791a714eb2f45a8c7d5836a4d493, type: 3}
   enemySpawnTime: 1
@@ -1881,7 +1882,7 @@ GameObject:
   m_TagString: ImpactNormal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1517209366
 Transform:
@@ -2020,7 +2021,7 @@ GameObject:
   m_TagString: ImpactNormal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1736161664
 Transform:
@@ -2422,7 +2423,7 @@ GameObject:
   m_TagString: ImpactNormal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &2060729682
 Transform:

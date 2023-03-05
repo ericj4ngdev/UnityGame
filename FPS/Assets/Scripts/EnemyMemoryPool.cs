@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class EnemyMemoryPool : MonoBehaviour
 {
+    [SerializeField] private Transform target;
     [SerializeField] private GameObject enemySpawnPointPrefab;
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private float enemySpawnTime = 1;
@@ -51,6 +52,7 @@ public class EnemyMemoryPool : MonoBehaviour
             yield return new WaitForSeconds(enemySpawnTime);
         }
     }
+    
     private IEnumerator SpawnEnemy(GameObject point)
     {
         yield return new WaitForSeconds(enmeySpawnLatency);
@@ -58,6 +60,8 @@ public class EnemyMemoryPool : MonoBehaviour
         // 적 오브젝트를 생성하고 적의 위치를 point의 위치로 설정
         GameObject item = enemyMemoryPool.ActivatePoolItem();
         item.transform.position = point.transform.position;
+        
+        item.GetComponent<EnemyFSM>().Setup(target);
             
         // 타일 오브젝트를 비활성화
         spawnPointMemoryPool.DeactivatePoolItem(point);
