@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     private KeyCode keyCodeRun = KeyCode.LeftShift;
     [SerializeField]
     private KeyCode keyCodeJump = KeyCode.Space;
+    [SerializeField] 
+    private KeyCode keyCodeReload = KeyCode.R;
     
     [Header("Audio Clips")] [SerializeField]
     private AudioClip audioClipWalk;
@@ -44,7 +46,6 @@ public class PlayerController : MonoBehaviour
         UpdateJump();
         UpdateWeaponAction();
     }
-
     private void UpdateRotate()
     {
         float mouseX = Input.GetAxis("Mouse X");
@@ -94,13 +95,18 @@ public class PlayerController : MonoBehaviour
             movement.Jump();
         }
     }
-
     private void UpdateWeaponAction()
     {
         if (Input.GetMouseButtonDown(0))
             weapon.StartWeaponAction();
         else if(Input.GetMouseButtonUp(0))
             weapon.StopWeaponAction();
+        
+        if (Input.GetKeyDown(keyCodeReload))
+        {
+            Debug.Log("R키 눌림");
+            weapon.StartReload();
+        }
     }
     
 }

@@ -20,10 +20,13 @@ public class WeaponAssaultRifle : MonoBehaviour
     private AudioClip audioClipTakeOutWeapon;       // 무기 장착 사운드
     [SerializeField]
     private AudioClip audioClipFire;
+    [SerializeField] 
+    private AudioClip audioClipReload;              // 재장전 사운드
     
     [Header("Weapon Setting")] [SerializeField]
     private WeaponSetting weaponSetting;            // 무기 설정
     private float lastAttackTime = 0;               // 마지막 발사시간 체크용
+    [SerializeField] private bool isReload = false;                  // 재장전 중인지 체크
     
     private AudioSource audioSource;                // 사운드 재생 컴포넌트
     private PlayerAnimatorController animator;      // 애니메이션 재생 제어
@@ -54,6 +57,9 @@ public class WeaponAssaultRifle : MonoBehaviour
 
     public void StartWeaponAction(int type = 0)
     {
+        // 재장전 중일 때는 무기 액션을 할 수 없다.
+        if (isReload == true) return;
+        
         // 실제 공격은 OnAttack메소드에 있으며 
         // OnAttackLoop는 OnAttack을 매프레임 실행
         // 마우스 좌클릭(공격 시전)
@@ -67,7 +73,6 @@ public class WeaponAssaultRifle : MonoBehaviour
             {
                 OnAttack();
             }
-
         }
     }
     // 연속 공격 종료 코드
@@ -76,6 +81,14 @@ public class WeaponAssaultRifle : MonoBehaviour
         if(type ==0)
             StopCoroutine("OnAttackLoop");
     }
+
+    public void StartReload()
+    {
+        if (isReload == true) return;       // 현재 재장전 중이면 불가능(?) 그냥 재장전 체크 아닌가
+        StopWeaponAction();                 // 무기 액션 도중에 R키를 눌러 재장전을 시도하면 무기액션 종료 후 재장전
+        StartCoroutine("OnReload");
+    }
+    
     private IEnumerator OnAttackLoop()
     {
         while (true)
@@ -111,13 +124,39 @@ public class WeaponAssaultRifle : MonoBehaviour
             casingMemoryPool.SpawnCasing(casingSpawnPoint.position, transform.right);
         }
     }
-
     private IEnumerator OnMuzzleFlashEffect()
     {
         muzzleFlashEffect.SetActive(true);
         yield return new WaitForSeconds(weaponSetting.attackRate * 0.3f);
         muzzleFlashEffect.SetActive(false);
     }
+    
+    private IEnumerator OnReload()
+    {
+        isReload = true;
+        // 재장전 애니메이션, 사운드 재생
+        animator.OnReload();
+        PlaySound(audioClipReload);
+        // ==============
+        // 재장전 애니메이션과 사운드 재생 중 일때, .while반복문 실행
+        while (true)
+        {
+            Debug.Log("R키 누르고 while문 실행");
+            // 종료 여부 체크, 둘다 종료되면 
+            if (audioSource.isPlaying == false && animator.CurrentAnimationIs("Movement"))
+            {
+                Debug.Log("R키 누르고 if문 실행");
+                isReload = false;       // 재장전 끝
+                // 현재 탄수 최대로 설정
+                weaponSetting.currentAmmo = weaponSetting.maxAmmo;
+                // 탄수 정보를 Text UI에 업데이트
+                onAmmoEvent.Invoke(weaponSetting.currentAmmo, weaponSetting.maxAmmo);
+                yield break;
+            }
+            yield return null;
+        }
+    }
+
     private void PlaySound(AudioClip clip)
     {
         audioSource.Stop();
