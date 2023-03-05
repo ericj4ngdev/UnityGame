@@ -104,7 +104,6 @@ public class PlayerController : MonoBehaviour
         
         if (Input.GetKeyDown(keyCodeReload))
         {
-            Debug.Log("R키 눌림");
             weapon.StartReload();
         }
     }
