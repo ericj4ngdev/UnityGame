@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public enum ImpactType {Normal = 0, Obstacle,}
+public enum ImpactType {Normal = 0, Obstacle, Enemy}
 public class ImpactMemoryPool : MonoBehaviour
 {
     [SerializeField] 
@@ -28,7 +28,11 @@ public class ImpactMemoryPool : MonoBehaviour
         {
             OnSpawnImpact(ImpactType.Obstacle, hit.point, Quaternion.LookRotation(hit.normal));
         }
-    }
+        else if (hit.transform.CompareTag("ImpactEnemy"))
+        {
+            OnSpawnImpact(ImpactType.Enemy,hit.point,Quaternion.LookRotation(hit.normal));
+        }
+    } 
 
     public void OnSpawnImpact(ImpactType type, Vector3 position, Quaternion rotation)
     {

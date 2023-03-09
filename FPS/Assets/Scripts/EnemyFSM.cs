@@ -22,13 +22,15 @@ public class EnemyFSM : MonoBehaviour
     private Status status;                              // 이동 속도 등의 정보
     private NavMeshAgent navMeshAgent;                  // 이동 제어를 위한 NavMeshAgent
     private Transform target;                           // 적의 공격 대상(플레이어)
+    private EnemyMemoryPool enemyMemoryPool;            // 적 메모리 풀
     
     // private void Awake()
-    public void Setup(Transform target)
+    public void Setup(Transform target, EnemyMemoryPool enemyMemoryPool)
     {
         status = GetComponent<Status>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         this.target = target;
+        this.enemyMemoryPool = enemyMemoryPool;
         
         // NavMeshAgent 컴포넌트에서 회전을 업데이트하지 않도록 설정
         navMeshAgent.updateRotation = false;        
@@ -70,7 +72,6 @@ public class EnemyFSM : MonoBehaviour
             yield return null;
         }
     }
-    
     private IEnumerator AutoChangeFromIdleToWander()
     {
         int changeTime = Random.Range(1, 5);
@@ -108,7 +109,6 @@ public class EnemyFSM : MonoBehaviour
             yield return null;
         }
     }
-
     private Vector3 CalculateWanderPosition()
     {
         float wanderRadius = 10;
@@ -133,7 +133,6 @@ public class EnemyFSM : MonoBehaviour
 
         return targetPosition;
     }
-
     private Vector3 SetAngle(float radius, int angle)
     {
         Vector3 position = Vector3.zero;
@@ -143,7 +142,6 @@ public class EnemyFSM : MonoBehaviour
 
         return position;
     }
-
     private IEnumerator Pursuit()
     {
         while (true)
@@ -162,7 +160,6 @@ public class EnemyFSM : MonoBehaviour
             yield return null;
         }
     }
-
     private IEnumerator Attack()
     {
         // 공격할 때는 이동을 멈추도록 설정
@@ -187,8 +184,6 @@ public class EnemyFSM : MonoBehaviour
             yield return null;
         }
     }
-    
-    
     private void LookRotationToTarget()
     {
         // 목표 위치
@@ -239,4 +234,14 @@ public class EnemyFSM : MonoBehaviour
         Gizmos.color = new Color(0.39f,0.04f, 0.04f);
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
+
+    public void TakeDamage(int damage)
+    {
+        bool isDie = status.DecreaseHP(damage);
+        if(isDie == true)
+            enemyMemoryPool.DeactivateEnemy(gameObject);
+    }
+    
+    
+    
 }

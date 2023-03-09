@@ -1822,6 +1822,7 @@ MonoBehaviour:
   audioClipReload: {fileID: 8300000, guid: 5b907074256e36d41b92e89fb0790633, type: 3}
   weaponSetting:
     weaponName: 0
+    damage: 50
     currentMagazine: 0
     maxMagazine: 8
     currentAmmo: 0
@@ -1858,6 +1859,7 @@ MonoBehaviour:
   impactPrefab:
   - {fileID: 5413875906872765732, guid: 7a518c7ea3101644392da50205e0437a, type: 3}
   - {fileID: 5413875906872765732, guid: d05ec7c8e307ef444be2dbf705721cae, type: 3}
+  - {fileID: 5413875906872765732, guid: cb503cd48761971448e77de53cd2506e, type: 3}
 --- !u!1 &1379528869
 GameObject:
   m_ObjectHideFlags: 0
