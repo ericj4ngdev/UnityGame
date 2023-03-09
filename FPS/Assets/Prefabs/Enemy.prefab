@@ -200,7 +200,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2054598085621019852}
-  - component: {fileID: -2476263554414224741}
+  - component: {fileID: 3739726021932852345}
   - component: {fileID: -4073276414986137050}
   - component: {fileID: -2128532477226982076}
   m_Layer: 0
@@ -226,7 +226,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-2476263554414224741
+--- !u!114 &3739726021932852345
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -238,6 +238,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d808a6c851088d42a1a3d6ff1965424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetRecognitionRange: 8
+  pursuitLimitRange: 10
+  projectilePrefab: {fileID: 692565342962950894, guid: 16c689841963f1c4f8adea6184c60664, type: 3}
+  projectileSpawnPoint: {fileID: 7875263514100927539}
+  attackRange: 5
+  attackRate: 1
 --- !u!114 &-4073276414986137050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,8 +256,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f940a451106c54d8c807eb6c6c344e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onHPEvent:
+    m_PersistentCalls:
+      m_Calls: []
   walkSpeed: 1.5
   runSpeed: 3
+  maxHP: 100
 --- !u!195 &-2128532477226982076
 NavMeshAgent:
   m_ObjectHideFlags: 0
