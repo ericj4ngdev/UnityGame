@@ -4,7 +4,7 @@ using UnityEngine;
 public class Target : InteractionObject
 {
     [SerializeField] private AudioClip clipTargetUp;
-    [SerializeField] private AudioClip cliptargetDown;
+    [SerializeField] private AudioClip clipTargetDown;
     [SerializeField] private float targetUpDelayTime = 3;
 
     private AudioSource audioSource;
@@ -28,7 +28,7 @@ public class Target : InteractionObject
 
     private IEnumerator OnTargetDown()
     {
-        audioSource.clip = cliptargetDown;
+        audioSource.clip = clipTargetDown;
         audioSource.Play();
 
         yield return StartCoroutine(OnAnimation(0, 90));

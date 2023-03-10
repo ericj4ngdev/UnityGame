@@ -288,4 +288,12 @@ public class WeaponAssaultRifle : MonoBehaviour
         audioSource.clip = clip;
         audioSource.Play();
     }
+
+    public void IncreaseMagazine(int magazine)
+    {
+        weaponSetting.currentMagazine =
+            CurrentMagazine + magazine > MaxMagazine ? MaxMagazine : CurrentMagazine + magazine;
+        onMagazineEvent.Invoke(CurrentMagazine);
+    }
+    
 }

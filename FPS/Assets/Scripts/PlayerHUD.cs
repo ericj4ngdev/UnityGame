@@ -91,6 +91,8 @@ public class PlayerHUD : MonoBehaviour
     private void UpdateHPHUD(int previous, int current)
     {
         textHP.text = "HP" + current;
+        // 체력이 증가했을 때는 화면에 빨간색 이미지를 출력하지 않도록 return
+        if (previous <= current) return;
         
         if (previous - current > 0)
         {

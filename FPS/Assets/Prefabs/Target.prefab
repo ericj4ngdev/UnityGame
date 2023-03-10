@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 545014447773488348}
   - component: {fileID: 545014447773488349}
   - component: {fileID: 6748915335959970437}
+  - component: {fileID: 1707572047968227028}
   m_Layer: 0
   m_Name: Target
   m_TagString: InteractionObject
@@ -157,8 +158,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 50
   clipTargetUp: {fileID: 8300000, guid: 83ed69ca21a297b4ab15a1e89abd4e4b, type: 3}
-  cliptargetDown: {fileID: 8300000, guid: 0a3d74157d2f1714894e1358632773c8, type: 3}
+  clipTargetDown: {fileID: 8300000, guid: 0a3d74157d2f1714894e1358632773c8, type: 3}
   targetUpDelayTime: 3
+--- !u!23 &1707572047968227028
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545014447773488346}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1001 &6996231092827166317
 PrefabInstance:
   m_ObjectHideFlags: 0
