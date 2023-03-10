@@ -116,6 +116,7 @@ public class WeaponAssaultRifle : MonoBehaviour
         // 마우스 우클릭 (모드 전환)
         else
         {
+            // 공격 중 일때는 모드전환을 할 수 없다. 
             if (isAttack == true) return;
 
             StartCoroutine("OnModeChange");
@@ -124,6 +125,7 @@ public class WeaponAssaultRifle : MonoBehaviour
     // 연속 공격 종료 코드
     public void StopWeaponAction(int type = 0)
     {
+        // 마우스 왼쪽 클릭 (공격 종료)
         if (type == 0)
         {
             isAttack = false;
