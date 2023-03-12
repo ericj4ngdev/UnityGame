@@ -23,7 +23,8 @@ public class PlayerController : MonoBehaviour
     private Status status;      // 이동속도 등의 플레이어 정보
     // private PlayerAnimatorController animator;
     private AudioSource audioSource;
-    private WeaponAssaultRifle weapon;
+    // private WeaponAssaultRifle weapon;
+    private WeaponBase weapon;
 
     private void Awake()
     {
@@ -35,9 +36,8 @@ public class PlayerController : MonoBehaviour
         movement = GetComponent<MovementCharacterController>();
         status = GetComponent<Status>();
         audioSource = GetComponent<AudioSource>();
-        weapon = GetComponentInChildren<WeaponAssaultRifle>();
+        // weapon = GetComponentInChildren<WeaponAssaultRifle>();
     }
-
     private void Update()
     {
         UpdateRotate(); 
@@ -121,7 +121,6 @@ public class PlayerController : MonoBehaviour
             weapon.StartReload();
         }
     }
-
     public void TakeDamage(int damage)
     {
         bool isDie = status.DecreaseHP(damage);
@@ -129,5 +128,9 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("GameOver");
         }
+    }
+    public void SwitchingWeapon(WeaponBase newWeapon)
+    {
+        weapon = newWeapon;
     }
 }

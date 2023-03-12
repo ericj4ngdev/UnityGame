@@ -1,6 +1,6 @@
 // 무기 종류가 여러 종류일때 공용으로 사용하는 변수들은 구조체로 묶어서 정의하면
 // 변수가 추가/삭제될 때 구조체에 선언하기 때문에 추가/삭제가 용이함
-public enum WeaponName{AssaultRifle = 0}
+public enum WeaponName{AssaultRifle = 0, Revolver, CombatKnife, HandGrenade}
 [System.Serializable]
 public struct WeaponSetting
 {
