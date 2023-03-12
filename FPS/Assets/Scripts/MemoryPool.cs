@@ -21,6 +21,8 @@ public class MemoryPool : MonoBehaviour
     public int MaxCount => maxCount;        // 외부에서 확인을 위한 프로퍼티 
     public int ActiveCount => activeCount;  // 외부에서 확인을 위한 프로퍼티
     
+    private Vector3 tempPosition = new Vector3(48,1,48);
+    
     public MemoryPool(GameObject poolObject)
     {
         maxCount = 0;
@@ -41,6 +43,7 @@ public class MemoryPool : MonoBehaviour
 
             poolItem.isActive = false;
             poolItem.gameObject = GameObject.Instantiate(poolObject);
+            poolItem.gameObject.transform.position = tempPosition;
             poolItem.gameObject.SetActive(false);
 
             poolItemList.Add(poolItem);
@@ -102,6 +105,8 @@ public class MemoryPool : MonoBehaviour
             if (poolItem.gameObject == removeObject)
             {
                 activeCount--;
+
+                poolItem.gameObject.transform.position = tempPosition;
                 poolItem.isActive = false;
                 poolItem.gameObject.SetActive(false);
             }
@@ -119,6 +124,7 @@ public class MemoryPool : MonoBehaviour
             PoolItem poolItem = poolItemList[i];
             if (poolItem.gameObject != null && poolItem.isActive == true)
             {
+                poolItem.gameObject.transform.position = tempPosition;
                 poolItem.isActive = false;
                 poolItem.gameObject.SetActive(false);
             }

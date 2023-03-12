@@ -584,7 +584,6 @@ GameObject:
   - component: {fileID: 332300991}
   - component: {fileID: 332300990}
   - component: {fileID: 332300992}
-  - component: {fileID: 332300994}
   - component: {fileID: 332300993}
   - component: {fileID: 332300995}
   m_Layer: 6
@@ -791,18 +790,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &332300994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 332300986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b536f49008b48c340baa8e5dd33d4073, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &332300995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2393,6 +2380,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5257be8f1a397e547a52efb13017e694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponType: 0
+  weaponSetting:
+    weaponName: 0
+    damage: 50
+    currentMagazine: 0
+    maxMagazine: 8
+    currentAmmo: 0
+    maxAmmo: 30
+    attackRate: 0.1
+    attackDistance: 30
+    isAutomaticAttack: 1
   onAmmoEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2405,16 +2403,6 @@ MonoBehaviour:
   audioClipTakeOutWeapon: {fileID: 8300000, guid: 2ae41e984ff1f3e4a840a1a46b6a8816, type: 3}
   audioClipFire: {fileID: 8300000, guid: 38b450e2adcb6f542acc8c1d423bd8dc, type: 3}
   audioClipReload: {fileID: 8300000, guid: 5b907074256e36d41b92e89fb0790633, type: 3}
-  weaponSetting:
-    weaponName: 0
-    damage: 50
-    currentMagazine: 0
-    maxMagazine: 8
-    currentAmmo: 0
-    maxAmmo: 30
-    attackRate: 0.1
-    attackDistance: 30
-    isAutomaticAttack: 1
   imageAim: {fileID: 645660416}
 --- !u!114 &1215168904
 MonoBehaviour:
@@ -2446,6 +2434,18 @@ MonoBehaviour:
   - {fileID: 5413875906872765732, guid: d05ec7c8e307ef444be2dbf705721cae, type: 3}
   - {fileID: 5413875906872765732, guid: cb503cd48761971448e77de53cd2506e, type: 3}
   - {fileID: 5413875906872765732, guid: 9c3a609818b286d48a2e1ed635f4dcad, type: 3}
+--- !u!114 &1215168906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215168901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b536f49008b48c340baa8e5dd33d4073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1379528869
 GameObject:
   m_ObjectHideFlags: 0

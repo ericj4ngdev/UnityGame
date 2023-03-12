@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private RotateToMouse rotateToMouse;
     private MovementCharacterController movement;
     private Status status;      // 이동속도 등의 플레이어 정보
-    private PlayerAnimatorController animator;
+    // private PlayerAnimatorController animator;
     private AudioSource audioSource;
     private WeaponAssaultRifle weapon;
 
@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
         rotateToMouse = GetComponent<RotateToMouse>();
         movement = GetComponent<MovementCharacterController>();
         status = GetComponent<Status>();
-        animator = GetComponent<PlayerAnimatorController>();
         audioSource = GetComponent<AudioSource>();
         weapon = GetComponentInChildren<WeaponAssaultRifle>();
     }
@@ -66,7 +65,7 @@ public class PlayerController : MonoBehaviour
             if (z > 0) isRun = Input.GetKey(keyCodeRun);
 
             movement.MoveSpeed = isRun == true ? status.RunSpeed : status.WalkSpeed;
-            animator.MoveSpeed = isRun == true ? 1 : 0.5f;
+            weapon.Animator.MoveSpeed = isRun == true ? 1 : 0.5f;
             audioSource.clip = isRun == true ? audioClipRun : audioClipWalk;
 
             if (audioSource.isPlaying == false)
@@ -79,7 +78,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             movement.MoveSpeed = 0;
-            animator.MoveSpeed = 0;
+            weapon.Animator.MoveSpeed = 0;
             // 멈췄을때 사운드가 재생 중이면 정지
             if (audioSource.isPlaying == true)
             {
