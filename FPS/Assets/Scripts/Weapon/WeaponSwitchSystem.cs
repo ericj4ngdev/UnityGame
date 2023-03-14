@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
 public class WeaponSwitchSystem : MonoBehaviour
@@ -10,8 +6,7 @@ public class WeaponSwitchSystem : MonoBehaviour
     [SerializeField] private PlayerHUD playerHUD;
 
     [SerializeField] private WeaponBase[] weapons;
-
-
+    
     private WeaponBase currentWeapon;
     private WeaponBase previousWeapon;
 
@@ -37,7 +32,7 @@ public class WeaponSwitchSystem : MonoBehaviour
     private void UpdateSwitch()
     {
         if (!Input.anyKeyDown) return;
-        int inputIndex = 0;
+        int inputIndex = 1;
         if (int.TryParse(Input.inputString, out inputIndex) && (inputIndex > 0 && inputIndex < 5))
         {
             SwitchingWeapon((WeaponType)(inputIndex - 1));

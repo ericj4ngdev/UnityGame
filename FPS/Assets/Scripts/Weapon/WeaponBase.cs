@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum WeaponType {Main = 0, Sub, Melee, Throw}
+public enum WeaponType { Main = 0, Sub, Melee, Throw }
 
 [System.Serializable]
 public class AmmoEvent : UnityEngine.Events.UnityEvent<int, int> {}

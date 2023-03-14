@@ -79,7 +79,7 @@ public class PlayerHUD : MonoBehaviour
     private void SetupMagazine()
     {
         magazineList = new List<GameObject>();
-        for (int i = 0; i < maxMagazineCount; i++)
+        for (int i = 0; i < maxMagazineCount; ++i)
         {
             GameObject clone = Instantiate(magazineUIPrefab);
             clone.transform.SetParent(magazineParent);
